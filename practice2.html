@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice 2 - CSS Update Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem auto;
+      max-width: 700px;
+      line-height: 1.5;
+    }
+    #box {
+      padding: 1rem;
+      border: 2px solid black;
+      margin-top: 1rem;
+    }
+    .row {
+      margin: 0.5rem 0;
+    }
+    label {
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Practice 2: CSS Update Page</h1>
+
+  <div class="row">
+    <label>R: <input type="number" id="r" min="0" max="255" value="0"></label>
+    <label>G: <input type="number" id="g" min="0" max="255" value="0"></label>
+    <label>B: <input type="number" id="b" min="0" max="255" value="0"></label>
+    <label>Border Width (px): <input type="number" id="bw" min="1" max="20" value="2"></label>
+    <button id="apply">Apply</button>
+  </div>
+
+  <p id="box">This is some sample text. Use the controls above to change my text color, border color, and border width.</p>
+
+  <p><a href="index.html">← Back to Index</a></p>
+
+  <script>
+    document.getElementById("apply").addEventListener("click", function () {
+      const r = document.getElementById("r").value;
+      const g = document.getElementById("g").value;
+      const b = document.getElementById("b").value;
+      const bw = document.getElementById("bw").value;
+
+      const color = `rgb(${r}, ${g}, ${b})`;
+      const box = document.getElementById("box");
+
+      box.style.color = color;         // change text color
+      box.style.borderColor = color;   // change border color
+      box.style.borderWidth = bw + "px"; // change border width
+    });
+  </script>
+</body>
+</html>
